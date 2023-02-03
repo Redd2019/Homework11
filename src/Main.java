@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         printLeapYear(2039);
-        task2();
+        getAppLink(2022,1);
 
     }
 
        public static void printLeapYear(int year) {
+
         if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
             System.out.println(year + " год - вискосный год.");
         }else {
@@ -13,23 +14,30 @@ public class Main {
         }
         }
 
-        public static void task2() {
-            System.out.println("Задача 2");
-            int clientOs = 0;
-            int clientDeviceYear = 2015;
-            if (clientDeviceYear <= 2015) {
-                if (clientOs == 1) {
-                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
-                } else {
-                    System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-                }
-            } else if (clientDeviceYear > 2015) {
-                if (clientOs == 1){
-                    System.out.println("Установите версию приложения для Android по ссылке");
-                }
-                if (clientOs==0){
-                    System.out.println("Установите версию приложения для iOS по ссылке");
-                }
-            }
+        public static void getAppLink (int manufactureYear, int os) {
+            System.out.printf(
+                    "Установите %s версию приложения для %s по ссылке%n",
+                    getAppVariant(manufactureYear), getOsString(os)
+            );
+        }
+
+        public static String getOsString(int os) {
+        if (os == 0) {
+            return "iOs";
+        } else {
+            return "Android";
+        }
+        }
+
+        public static String getAppVariant(int year) {
+        if (year > 2015) {
+            return "полную";
+        } else {
+            return "облегченную";
         }
     }
+
+
+
+
+        }
