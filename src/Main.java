@@ -2,6 +2,12 @@ public class Main {
     public static void main(String[] args) {
         printLeapYear(2039);
         getAppLink(2022,1);
+        int deliveryDays = getDeliveryDays(44);
+        if (deliveryDays < 0) {
+            System.out.println("Доставка не осуществляется.");
+        } else {
+            System.out.println("Потребуется дней: " + deliveryDays);
+        }
 
     }
 
@@ -37,7 +43,15 @@ public class Main {
         }
     }
 
-
-
-
+    public static int getDeliveryDays(int distance) {
+        if (distance < 20) {
+            return 1;
+        } else if (distance < 60) {
+            return 2;
+        } else if (distance < 100) {
+            return 3;
         }
+
+        return -1;
+    }
+}
